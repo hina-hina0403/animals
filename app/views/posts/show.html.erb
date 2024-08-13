@@ -1,4 +1,21 @@
 <h1>Posts#show</h1>
+
+<% @posts.each do |post| %>
+        <tr>
+          <td>
+          <%= link_to user_path(post.user.id) do %>
+          <%= image_tag post.user.get_profile_image(100,100) %>
+          <% end %>
+         </td>
+         <td>
+           <%= link_to post_path(post.id) do %>
+          <%= post.title %>
+          <% end %>
+         </td>
+         <td><%= post.body %></td>
+        </tr>
+        <% end %>
+
 <% if post_comment.user == current_user %>
       <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-    <% end %>
+<% end %>
