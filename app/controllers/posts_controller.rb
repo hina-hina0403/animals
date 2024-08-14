@@ -22,7 +22,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    
+  end
 
+  def destroy
+    Post.find(params[:id]).destroy
+    redirect_to posts_path
   end
 
 
@@ -33,8 +38,5 @@ class PostsController < ApplicationController
   end
 
 
-  def destroy
-    Post.find(params[:id]).destroy
-    redirect_to post_path(params[:post_id])
-  end
+
 end

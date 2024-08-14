@@ -1,21 +1,21 @@
 <h1>Posts#show</h1>
 
-<% @posts.each do |post| %>
+
         <tr>
           <td>
-          <%= link_to user_path(post.user.id) do %>
-          <%= image_tag post.user.get_profile_image(100,100) %>
+          <%= link_to user_path(@post.user.id) do %>
+          <%= image_tag @post.user.get_profile_image(100,100) %>
           <% end %>
          </td>
          <td>
-           <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-          <% end %>
+          <%= @post.animal_name %>
          </td>
-         <td><%= post.body %></td>
+         <td>
+           <%= @post.caption %>
+          </td>
         </tr>
-        <% end %>
 
-<% if post_comment.user == current_user %>
-      <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-<% end %>
+
+
+      <%= link_to "削除", post_path(@post), method: :delete %>
+
