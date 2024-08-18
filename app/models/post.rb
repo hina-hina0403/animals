@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   validates :animal_name, presence: true
+  validates :caption, presence: true
   validates :image, presence: true
 
   def get_image

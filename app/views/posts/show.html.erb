@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<h1>投稿詳細</h1>
 <p id="notice"></p>
 <div class="container">
   <div class="row">
@@ -26,8 +26,8 @@
           </td>
           <td>
             <% if @user == current_user %>
-              <%= link_to "削除", post_path(@post), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
               <%= link_to "編集", edit_post_path(@post), class: "btn btn-sm btn-primary", method: :create %>
+              <%= link_to "削除", post_path(@post), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
             </td>
           </tr>

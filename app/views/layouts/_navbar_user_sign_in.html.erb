@@ -1,0 +1,20 @@
+<li class="nav-item">
+  <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+   <i class="fas fa-home"></i> Mypage
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to users_path, class: 'nav-link text-light' do %>
+  <i class="fa-solid fa-users"></i> Users
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to posts_path, class: 'nav-link text-light' do %>
+  <i class="fa-solid fa-book-open"></i> posts
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+  <i class="fa-solid fa-right-from-bracket"></i> Log out
+  <% end %>
+</li>
