@@ -20,10 +20,18 @@ class UsersController < ApplicationController
   end
 
    def update
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+     @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to mypage_path
+    end
+    if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully."
+    redirect_to mypage_path
+    else
+      render :edit
+    end
    end
-   
+
   def destroy
     User.find(params[:id]).destroy
     redirect_to root_path
